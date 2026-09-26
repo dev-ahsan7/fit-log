@@ -1,6 +1,7 @@
 import { IWorkouts } from '@/Types/workout.type';
 import Image from 'next/image';
 import React from 'react';
+import { notFound } from 'next/navigation';
 import AddToPlanButton from '@/components/WorkoutsDetails/AddToPlanButton';
 import SavePlanButton from '@/components/WorkoutsDetails/SavePlanButton';
 import { oswald } from '@/components/lib/fonts';
@@ -28,11 +29,7 @@ const WorkoutDetialsPage = async ({ params }: WorkoutDetialsPageProps) => {
   const workout = workoutsData.find((w) => Number(w.id) === Number(workoutId));
 
   if (!workout) {
-    return (
-      <section className="flex min-h-screen items-center justify-center bg-neutral-950">
-        <p className="text-neutral-400">Workout not found.</p>
-      </section>
-    );
+    notFound();
   }
 
   const stats = [
