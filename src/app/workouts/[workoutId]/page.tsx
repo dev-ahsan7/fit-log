@@ -1,8 +1,9 @@
 import { IWorkouts } from '@/Types/workout.type';
 import Image from 'next/image';
-import { Calendar, Bookmark } from 'lucide-react';
 import React from 'react';
 import { oswald } from '@/app/layout';
+import AddToPlanButton from '@/components/WorkoutsDetails/AddToPlanButton';
+import SavePlanButton from '@/components/WorkoutsDetails/SavePlanButton';
 
 interface WorkoutDetialsPageProps {
   params: Promise<{ workoutId: number }>;
@@ -111,14 +112,8 @@ const WorkoutDetialsPage = async ({ params }: WorkoutDetialsPageProps) => {
           </div>
 
           <div className="mt-8 flex flex-wrap gap-3">
-            <button className="flex items-center gap-2 rounded-xl bg-[#CCFF00] hover:bg-[#c0f003] px-6 py-3 text-sm font-semibold text-black transition cursor-pointer">
-              <Calendar className="h-4 w-4" />
-              Add to today&apos;s plan
-            </button>
-            <button className="flex items-center gap-2 rounded-xl border border-[#374151] px-6 py-3 text-sm font-semibold text-white transition hover:bg-neutral-900 cursor-pointer">
-              <Bookmark className="h-4 w-4" />
-              Save for later
-            </button>
+            <AddToPlanButton workout={workout}></AddToPlanButton>
+            <SavePlanButton workout={workout}></SavePlanButton>
           </div>
         </div>
       </div>
