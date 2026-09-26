@@ -30,7 +30,7 @@ const Navbar = () => {
   );
 
   return (
-    <div className="border-b border-[#1C1F26]">
+    <div className="sticky top-0 z-50 border-b border-[#1C1F26] bg-[#0a0b0f]/90 backdrop-blur-sm">
       <div className="navbar max-w-7xl mx-auto px-6 py-6.5">
         <div className="navbar-start">
           <div className="dropdown">
