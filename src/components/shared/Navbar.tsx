@@ -6,7 +6,7 @@ import { oswald } from '@/app/layout';
 import NavLink from './Navlink';
 
 const NAV_LINKS = [
-  { href: '/', label: 'Workouts' },
+  { href: '/workouts', label: 'Workouts' },
   { href: '/my-plan', label: 'My Plan' },
 ];
 
@@ -36,7 +36,7 @@ const Navbar = () => {
               {links}
             </ul>
           </div>
-          <Link href={'/'} className="btn btn-ghost text-xl">
+          <Link href={'/'}>
             <div className="flex items-center gap-2.5">
               <Image src={logo} alt="" width={28} height={28} />
               <h4 className={`${oswald.className} font-bold text-[18px] `}>
