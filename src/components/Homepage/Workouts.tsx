@@ -1,7 +1,7 @@
-import { oswald } from '@/app/layout';
 import { IWorkouts } from '@/Types/workout.type';
 import React from 'react';
 import WorkoutCard from './WorkoutCard';
+import { oswald } from '../lib/fonts';
 
 const getWorkouts = async () => {
   const res = await fetch('https://api.abcz.workers.dev/api/fitlog');

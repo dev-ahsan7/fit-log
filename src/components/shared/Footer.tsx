@@ -1,6 +1,6 @@
 import Image from 'next/image';
 import logo from '@/assets/logo.png';
-import { oswald } from '@/app/layout';
+import { oswald } from '../lib/fonts';
 
 const Footer = () => {
   return (

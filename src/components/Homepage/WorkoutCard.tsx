@@ -1,8 +1,8 @@
-import { oswald } from '@/app/layout';
 import { IWorkouts } from '@/Types/workout.type';
 import { Clock, Flame, Star } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { oswald } from '../lib/fonts';
 
 const WorkoutCard = ({ workout }: { workout: IWorkouts }) => {
   const {

@@ -1,9 +1,9 @@
 import { IWorkouts } from '@/Types/workout.type';
 import Image from 'next/image';
 import React from 'react';
-import { oswald } from '@/app/layout';
 import AddToPlanButton from '@/components/WorkoutsDetails/AddToPlanButton';
 import SavePlanButton from '@/components/WorkoutsDetails/SavePlanButton';
+import { oswald } from '@/components/lib/fonts';
 
 interface WorkoutDetialsPageProps {
   params: Promise<{ workoutId: number }>;

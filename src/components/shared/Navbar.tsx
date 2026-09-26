@@ -1,9 +1,13 @@
+'use client';
 import Link from 'next/link';
 import { Menu } from 'lucide-react';
 import logo from '@/assets/logo.png';
 import Image from 'next/image';
-import { oswald } from '@/app/layout';
 import NavLink from './Navlink';
+import { useContext } from 'react';
+import { WorkoutContext } from '@/context/WorkoutContext';
+import { IWorkouts } from '@/Types/workout.type';
+import { oswald } from '../lib/fonts';
 
 const NAV_LINKS = [
   { href: '/workouts', label: 'Workouts' },
@@ -11,6 +15,10 @@ const NAV_LINKS = [
 ];
 
 const Navbar = () => {
+  const { addPlan, savePlan } = useContext(WorkoutContext) as {
+    addPlan: IWorkouts[];
+    savePlan: IWorkouts[];
+  };
   const links = (
     <>
       {NAV_LINKS.map((link) => (
@@ -57,7 +65,7 @@ const Navbar = () => {
               <span className="text-sm font-normal text-[#9CA3AF]">Plan</span>
 
               <span className="flex items-center justify-center px-2 py-0.5 rounded-full bg-[#C2F800] text-sm font-normal text-black">
-                0
+                {addPlan.length}
               </span>
             </Link>
 
@@ -66,7 +74,7 @@ const Navbar = () => {
               <span className="text-sm font-normal text-[#9CA3AF]">Saved</span>
 
               <span className="flex items-center justify-center px-2 py-0.5 rounded-full border border-[#323742] text-sm text-[#9CA3AF]">
-                0
+                {savePlan.length}
               </span>
             </Link>
           </div>

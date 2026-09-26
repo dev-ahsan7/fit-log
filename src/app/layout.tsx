@@ -1,13 +1,13 @@
 import type { Metadata } from 'next';
-import { Inter, Oswald } from 'next/font/google';
 import './globals.css';
 import Navbar from '@/components/shared/Navbar';
 import Footer from '@/components/shared/Footer';
 import WorkoutProvider from '@/context/WorkoutContext';
 import { ToastContainer, Zoom } from 'react-toastify';
+import { Inter } from 'next/font/google';
 
 const inter = Inter({ subsets: ['latin'], weight: ['400', '700'] });
-export const oswald = Oswald({ subsets: ['latin'], weight: ['700'] });
+// export const oswald = Oswald({ subsets: ['latin'], weight: ['700'] });
 
 export const metadata: Metadata = {
   title: 'Fit Log',

@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import React from 'react';
+import { oswald } from '../lib/fonts';
 
 interface NothingHereYetProps {
   title?: string;
@@ -15,14 +16,16 @@ const NothingHereYet = ({
   href = '/workouts',
 }: NothingHereYetProps) => {
   return (
-    <div className="flex min-h-80 flex-col items-center justify-center rounded-2xl border border-dashed border-[#232834] px-6 text-center">
-      <h3 className="text-lg font-extrabold uppercase tracking-wide text-white">
+    <div className="flex min-h-80 flex-col items-center bg-[#111317] justify-center rounded-2xl border border-dashed border-[#232834] px-6 text-center">
+      <h3
+        className={`${oswald.className} text-[20px] font-bold uppercase tracking-wide text-white`}
+      >
         {title}
       </h3>
-      <p className="mt-2 max-w-sm text-sm text-neutral-500">{description}</p>
+      <p className="mt-2 text-base max-w-sm text-[#A1A1AA]">{description}</p>
       <Link
         href={href}
-        className="mt-6 rounded-xl bg-[#CCFF00] px-6 py-3 text-sm font-semibold text-black transition hover:bg-[#c0f003]"
+        className="mt-6 rounded-full bg-[#CCFF00] px-6 py-3 text-sm font-semibold text-black transition hover:bg-[#c0f003]"
       >
         {buttonText}
       </Link>

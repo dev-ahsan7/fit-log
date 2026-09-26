@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
-import { oswald } from '@/app/layout';
 import heroImage from '@/assets/banner.png';
+import { oswald } from '../lib/fonts';
 
 const HeroBanner = () => {
   return (
