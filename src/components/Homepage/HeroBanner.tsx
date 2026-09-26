@@ -6,7 +6,7 @@ import heroImage from '@/assets/banner.png';
 const HeroBanner = () => {
   return (
     <section className="max-w-7xl mx-auto px-6 pt-6.5 pb-6 sm:pt-12 sm:pb-12">
-      <div className="rounded-2xl bg-[#15171D] px-6 py-12 sm:px-10 sm:py-16 border border-[#222630] lg:px-14 lg:py-16">
+      <div className="rounded-2xl bg-[#15171D] px-6 py-12 sm:px-6 sm:py-10 border border-[#222630] lg:px-14 lg:py-14">
         <div className="flex flex-col lg:flex-row items-center  justify-between gap-10">
           {/* Texts Content */}
           <div className="max-w-xl  text-center lg:text-left">
@@ -18,7 +18,7 @@ const HeroBanner = () => {
             >
               Train With Intent. Log Every Set.
             </h1>
-            <p className="text-[#9CA3AF] text-base leading-relaxed mb-5">
+            <p className="text-[#9CA3AF] lg:max-w-120.25 text-base leading-6 mb-5">
               FitLog is a dark, no-nonsense gym companion: pick a lift, lock it
               into today&apos;s plan, and watch the week&apos;s work add up.
             </p>

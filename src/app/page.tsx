@@ -1,9 +1,11 @@
-import Image from 'next/image';
-import { oswald } from './layout';
 import HeroBanner from '@/components/Homepage/HeroBanner';
+import Workouts from '@/components/Homepage/Workouts';
 
 export default function Home() {
   return (
-    <HeroBanner></HeroBanner>
+    <div>
+      <HeroBanner></HeroBanner>
+      <Workouts></Workouts>
+    </div>
   );
 }

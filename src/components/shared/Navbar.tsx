@@ -6,8 +6,7 @@ import { oswald } from '@/app/layout';
 import NavLink from './Navlink';
 
 const NAV_LINKS = [
-  { href: '/', label: 'Home' },
-  { href: '/workouts', label: 'Workouts' },
+  { href: '/', label: 'Workouts' },
   { href: '/my-plan', label: 'My Plan' },
 ];
 
