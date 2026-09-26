@@ -1,11 +1,67 @@
+'use client';
+import { WorkoutContext } from '@/context/WorkoutContext';
 import { IWorkouts } from '@/Types/workout.type';
-import { Clock, Flame, Star, Check, X } from 'lucide-react';
+import {
+  Clock,
+  Flame,
+  Star,
+  Check,
+  X,
+  CheckCircle2,
+  XCircle,
+} from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
+import React, { useContext } from 'react';
+import { toast } from 'react-toastify';
 import { oswald } from '../lib/fonts';
 
+const toastStyle = {
+  background: '#1A1D24',
+  color: '#fff',
+  border: '1px solid #2A2F3A',
+};
+
 const ListedWorkout = ({ workout }: { workout: IWorkouts }) => {
+  const { addPlan, setAddPlan, savePlan, setSavePlan } = useContext(
+    WorkoutContext,
+  ) as {
+    addPlan: IWorkouts[];
+    setAddPlan: React.Dispatch<React.SetStateAction<IWorkouts[]>>;
+    savePlan: IWorkouts[];
+    setSavePlan: React.Dispatch<React.SetStateAction<IWorkouts[]>>;
+  };
+
+  const isInAddPlan = addPlan.some((w) => w.id === workout.id);
+
+  const handleMarkDone = () => {
+    if (isInAddPlan) {
+      setAddPlan(addPlan.filter((w) => w.id !== workout.id));
+    } else {
+      setSavePlan(savePlan.filter((w) => w.id !== workout.id));
+    }
+    toast.success('Workout logged — nice work', {
+      style: toastStyle,
+      icon: <CheckCircle2 className="h-5 w-5 text-green-500" />,
+    });
+  };
+
+  const handleRemove = () => {
+    if (isInAddPlan) {
+      setAddPlan(addPlan.filter((w) => w.id !== workout.id));
+      toast.error('Removed from plan', {
+        style: toastStyle,
+        icon: <XCircle className="h-5 w-5 text-red-500" />,
+      });
+    } else {
+      setSavePlan(savePlan.filter((w) => w.id !== workout.id));
+      toast.error('Removed from saved', {
+        style: toastStyle,
+        icon: <XCircle className="h-5 w-5 text-red-500" />,
+      });
+    }
+  };
+
   return (
     <div className="flex flex-col gap-4 rounded-2xl border border-[#232834] bg-[#0d0f14] p-4 sm:flex-row sm:items-center">
       <div className="relative h-40 w-full shrink-0 overflow-hidden rounded-xl sm:h-20 sm:w-36">
@@ -48,11 +104,17 @@ const ListedWorkout = ({ workout }: { workout: IWorkouts }) => {
         >
           View Details
         </Link>
-        <button className="flex items-center gap-1.5 rounded-lg bg-[#CCFF00] px-4 py-2 text-xs font-semibold text-black transition hover:bg-[#c0f003] cursor-pointer">
+        <button
+          onClick={handleMarkDone}
+          className="flex items-center gap-1.5 rounded-lg bg-[#CCFF00] px-4 py-2 text-xs font-semibold text-black transition hover:bg-[#c0f003] cursor-pointer"
+        >
           <Check className="h-3.5 w-3.5" />
           Mark as Done
         </button>
-        <button className="text-neutral-500 transition hover:text-white cursor-pointer">
+        <button
+          onClick={handleRemove}
+          className="text-neutral-500 transition hover:text-white cursor-pointer"
+        >
           <X className="h-4 w-4" />
         </button>
       </div>
